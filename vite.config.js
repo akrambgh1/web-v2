@@ -6,7 +6,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Weblocatores/", // Leading and trailing slashes are correct
+  base: "/", // Leading and trailing slashes are correct
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
