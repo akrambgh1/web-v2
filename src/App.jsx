@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import { ProfileAkram }  from "../pages/profile-akram";
+import {Akram }  from "../pages/profile-akram";
 
 
 export default function App() {
   return (
-    <Router basename="/">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Benghezal-akram" element={<ProfileAkram />} />
+        <Route path="/Benghezal-akram" element={<Akram />} />
 
       </Routes>
     </Router>

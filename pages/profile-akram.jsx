@@ -1,6 +1,6 @@
 
 
-export function ProfileAkram() {
+export function Akram() {
   return (
     <>
       <section className="flex flex-col items-center justify-center bg-black h-screen">
