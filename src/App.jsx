@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 
 export default function App() {
   return (
-    <Router basename="/Weblocatores">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
