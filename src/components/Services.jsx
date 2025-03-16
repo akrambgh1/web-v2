@@ -66,7 +66,7 @@ export default function ServicesSection() {
 
               <div>
                 <img
-                  src="public/landing.jpg"
+                  src="/landing.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -95,7 +95,7 @@ export default function ServicesSection() {
 
               <div>
                 <img
-                  src="public/landing.jpg"
+                  src="/landing.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -124,7 +124,7 @@ export default function ServicesSection() {
 
               <div>
                 <img
-                  src="public/landing.jpg"
+                  src="/landing.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -153,7 +153,7 @@ export default function ServicesSection() {
 
               <div>
                 <img
-                  src="public/landing.jpg"
+                  src="/landing.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
