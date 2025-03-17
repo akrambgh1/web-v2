@@ -70,7 +70,7 @@ export default function Home() {
     };
   }, []);
 
-  const scale = useTransform(scrollYProgress, [0.5, 0.6], ["3", "75"]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.4], ["10", "800"]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -97,7 +97,7 @@ export default function Home() {
       x: position.x - 12,
       y: position.y - 12,
       scale: 1,
-      backgroundColor: "#eee",
+      backgroundColor: "#1e1e1e",
     },
     textHover: {
       height: "3rem",
@@ -119,59 +119,71 @@ export default function Home() {
 
   return (
     <>
-      {/* <motion.div
+      <motion.div
         className="fixed top-0 left-0 w-6 h-6 bg-white rounded-full pointer-events-none z-50 max-md:w-0"
         variants={variants}
         animate={cursorVarient}
         transition={{ type: "ease" }}
-      /> */}
+      />
       <section
         data-scroll-container
         ref={containerRef}
-        className="flex flex-col"
+        className="flex flex-col relative"
       >
         <section className="flex flex-col max-md:gap-[0rem] relative">
-          {/* <h1
-            className={`text-[2.5rem] text-black fixed right-[2%] max-md:right-[5%] top-[3%] z-[50] font-[500] transition-all duration-200 tracking-tight max-md:text-[1.5rem] ${
-              !scrollingUp ? "opacity-0" : "" // Hide navbar when scrolling down
-            } `}
-          >
-            Webloactores
-          </h1> */}
-          <div className="w-full h-auto flex items-center gap-[5rem] text-center flex-col justify-center relative ">
-            <div className="flex flex-col relative gap-8 max-md:h-[70vh] items-center justify-center max-xl:text-center h-[100vh] w-full max-xl:w-full p-4 px-8">
-              <h1
+          <div className="w-full h-auto flex items-center gap-[5rem] flex-col justify-center relative mb-[3rem]">
+            <div className="flex justify-between gap-8 max-md:h-[70vh] max-xl:text-center h-[100vh] w-full max-xl:w-full relative">
+              <div className="w-full flex flex-col items-center justify-center text-center h-[100%] absolute bottom-0 gap-8">
+                <h1 className="text-[7rem] tracking-tighter font-[500] max-md:text-[2.5rem] leading-23 max-xl:leading-21 w-[60%] max-xl:text-[4rem] max-md:leading-14 max-md:w-full">
+                  Give a new start to your buisness
+                </h1>
+                <div className="flex flex-col gap-4 items-center justify-center">
+                  <p className="w-[40%] text-[1.25rem] max-xl:w-[90%] max-md:text-[1rem]">
+                    At Weblocators, we create sleek, user-focused websites that
+                    combine design and performance to help businesses shine
+                    online.
+                  </p>
+
+                  <button className="bg-[#2163f1] text-[#cadbff] font-[500] text-[1.2rem] px-8 py-2 rounded-[5px]">
+                    Contact us
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
+            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
+              <motion.div
+                initial={{}}
+                style={{ scale }}
+                transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
+                viewport={{ amount: 0.5 }}
+                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#2163f1] rounded-full"
+              ></motion.div>
+
+              <motion.h1
                 onMouseEnter={() => {
                   setCursorVariant("textHover");
                 }}
                 onMouseLeave={handleMouseLeave}
-                className="text-[5rem] text-center font-[600] text-black tracking-tight leading-[4.5rem] max-md:text-[2.5rem] max-md:leading-8"
+                className="font-bold text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
+                initial={{ opacity: 0, translateY: 25 }}
+                whileInView={{ opacity: 1, translateY: 0 }}
+                viewport={{ amount: 0.9 }}
+                transition={{ ease: easeInOut, duration: 0.5 }}
               >
-                Give a new start to <br /> your buisness
-              </h1>
-              <p className="text-[2rem] text-[#000] w-[55%] max-xl:w-[90%] max-md:text-[1rem]">
-                An AI-native workspace that gives you an unfair advantage
+                Crafting high-performing websites that drive success whenever
+                and however you need them.
+              </motion.h1>
+
+              <p className="absolute bottom-[10%] right-[5%] w-[40%] font-[500] text-[#fff] text-[1.25rem] max-md:text-[.75rem] max-md:w-[90%]">
+                Let’s not create just for the sake of it. Let’s craft something
+                that’s as meaningful as it is memorable. At Studio by Miyagami,
+                we don’t just design; we build legacies—bold and unforgettable.
               </p>
-
-              <button className="bg-[#062357] text-[#94c2ff] py-3 w-fit px-8 rounded-[5px] cursor-pointer">
-                Get started now
-              </button>
             </div>
-
-            {/* <motion.div className="h-[80%] w-[80%] bg-center bg-cover rounded-[20px] max-lg:w-full">
-              <video
-                width="1920"
-                height="1080"
-                type="video/mp4"
-                className="rounded-[20px]"
-                autoPlay
-                muted
-                loop
-                src="public/Video_dInformations_evenementielles_Start-up_avec_Illustrations_en_Bleu_fonce_et_Vert_3.mp4"
-              ></video>
-            </motion.div> */}
-          </div>
-
+          </section>
           {window.innerWidth > 768 ? (
             <HorizontalScrollCarousel />
           ) : (
@@ -279,39 +291,6 @@ export default function Home() {
               </div>
             </>
           )}
-
-          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
-            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
-              <motion.div
-                initial={{}}
-                style={{ scale }}
-                transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
-                viewport={{ amount: 0.5 }}
-                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#1aa3ff] rounded-full"
-              ></motion.div>
-
-              <motion.h1
-                onMouseEnter={() => {
-                  setCursorVariant("textHover");
-                }}
-                onMouseLeave={handleMouseLeave}
-                className="font-bold text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
-                initial={{ opacity: 0, translateY: 25 }}
-                whileInView={{ opacity: 1, translateY: 0 }}
-                viewport={{ amount: 0.9 }}
-                transition={{ ease: easeInOut, duration: 0.5 }}
-              >
-                Crafting high-performing websites that drive success whenever
-                and however you need them.
-              </motion.h1>
-
-              <p className="absolute bottom-[10%] right-[5%] w-[40%] font-[500] text-[#fff] text-[1.25rem] max-md:text-[.75rem] max-md:w-[90%]">
-                Let’s not create just for the sake of it. Let’s craft something
-                that’s as meaningful as it is memorable. At Studio by Miyagami,
-                we don’t just design; we build legacies—bold and unforgettable.
-              </p>
-            </div>
-          </section>
 
           <ServicesSection></ServicesSection>
 

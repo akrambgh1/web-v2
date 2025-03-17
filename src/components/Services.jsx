@@ -8,12 +8,13 @@ export default function ServicesSection() {
     85: false,
     170: false,
     255: false,
+    340: false
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const stickyElements = document.querySelectorAll("[data-sticky]");
-      const newActiveSections = { 0: false, 85: false, 170: false, 255: false };
+      const newActiveSections = { 0: false, 85: false, 170: false, 255: false , 340: false};
 
       stickyElements.forEach((el) => {
         const topValue = el.getBoundingClientRect().top;
@@ -38,12 +39,12 @@ export default function ServicesSection() {
   return (
     <>
       <section
-        className="relative min-h-[140vh] mt-[10rem] max-md:min-h-[250vh] max-md:mt-[5rem]"
+        className="relative min-h-[180vh] mt-[10rem] max-md:min-h-[320vh] max-md:mt-[5rem]"
         style={{
           clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
         }}
       >
-        <section className="h-[180vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
+        <section className="h-[212vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
           {/* Section 1 */}
           <div
             data-sticky
@@ -51,16 +52,17 @@ export default function ServicesSection() {
           >
             <motion.div
               className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
-                activeSections[0] ? "bg-[#A97BFC]" : "bg-[#fff]"
+                activeSections[0] ? "bg-[#2264f1] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Brand Design</h1>
-                <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Brand Research + Analysis</li>
-                  <li>Brand Strategy + Positioning</li>
-                  <li>Brand Naming + Story</li>
-                  <li>Brand Activation</li>
+                <h1 className="text-[2.5rem] font-[400] max-md:text-[1.75rem]">Website Design & Development</h1>
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                  <li>Business Websites</li>
+                  <li>Frontend and backend development</li>
+                  <li>E-commerce Solutions</li>
+                  <li>Portfolio & Personal Websites</li>
+                  <li>Web Applications</li>
                 </ul>
               </div>
 
@@ -80,12 +82,12 @@ export default function ServicesSection() {
           >
             <motion.div
               className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between gap-4 transition-colors duration-300 max-md:gap-4 ${
-                activeSections[85] ? "bg-[#B58CFD]" : "bg-[#fff]"
+                activeSections[85] ? "bg-[#3973f2] text-white" : "bg-[#fff]"
               }`}
             >
-              <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Brand Strategy</h1>
-                <ul className="flex flex-col gap-2 tracking-tighter">
+              <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Brand Strategy</h1>
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Market Research</li>
                   <li>Competitive Analysis</li>
                   <li>Brand Positioning</li>
@@ -109,12 +111,12 @@ export default function ServicesSection() {
           >
             <motion.div
               className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
-                activeSections[170] ? "bg-[#D0B5FF]" : "bg-[#fff]"
+                activeSections[170] ? "bg-[#4f83f4] text-white" : "bg-[#fff]"
               }`}
             >
-              <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Visual Identity</h1>
-                <ul className="flex flex-col gap-2 tracking-tighter">
+              <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Visual Identity</h1>
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Logo Design</li>
                   <li>Typography</li>
                   <li>Color Palette</li>
@@ -138,16 +140,42 @@ export default function ServicesSection() {
           >
             <motion.div
               className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
-                activeSections[255] ? "bg-[#ddcbfe]" : "bg-[#fff]"
+                activeSections[255] ? "bg-[#6592f5] text-white" : "bg-[#fff]"
               }`}
             >
-              <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Digital Presence</h1>
-                <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Website Design</li>
-                  <li>Social Media Strategy</li>
-                  <li>Content Creation</li>
-                  <li>Online Campaigns</li>
+              <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">SEO & Digital Marketing</h1>
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                  <li>On-page and off-page SEO</li>
+                  <li>Social media integration</li>
+                  <li>Email marketing setup</li>
+                </ul>
+              </div>
+
+              <div>
+                <img
+                  src="/landing.jpg"
+                  className="object-cover w-full h-[30vh] rounded-[5px]"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          <div
+            data-sticky
+            className="sticky top-[340px] z-3 h-auto w-full overflow-visible"
+          >
+            <motion.div
+              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+                activeSections[340] ? "bg-[#91b1f8] text-white" : "bg-[#fff]"
+              }`}
+            >
+              <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Hosting & Maintenance</h1>
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                  <li>Web hosting setup</li>
+                  <li>Ongoing maintenance and support</li>
+                  <li>Security updates and backups</li>
                 </ul>
               </div>
 
