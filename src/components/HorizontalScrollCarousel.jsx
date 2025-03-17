@@ -1,178 +1,121 @@
-import React, { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  AnimatePresence,
-} from "framer-motion";
-
-// Dummy card data – customize as needed
-const cardData = [
-  {
-    title: "Design Skills",
-    description:
-      "We create visually stunning and user-friendly designs that captivate visitors while ensuring smooth navigation.",
-  },
-  {
-    title: "Development Expertise",
-    description:
-      "Our developers build fast, secure, and scalable websites with clean, efficient code for seamless functionality.",
-  },
-  {
-    title: "Performance Optimization",
-    description:
-      "We ensure lightning-fast load times and smooth performance through code efficiency, image optimization, and responsive design.",
-  },
-  {
-    title: "SEO and Analytics",
-    description:
-      "Our SEO strategies boost visibility, while data-driven insights help refine performance and maximize audience engagement.",
-  },
-  {
-    title: "Adaptability and Innovation",
-    description:
-      "We stay ahead of trends, integrating new technologies and ensuring your website remains modern, efficient, and future-proof.",
-  },
-];
+import { useRef } from "react";
+import { motion, useTransform, useScroll, useMotionTemplate } from "framer-motion";
 
 export const HorizontalScrollCarousel = () => {
-  // Overall section ref (tall container)
-  const sectionRef = useRef(null);
-  // Sticky container ref (intended to fill the viewport)
-  const stickyRef = useRef(null);
-  // State to track if sticky container completely fills the viewport
-  const [isStickyFull, setIsStickyFull] = useState(false);
-  // Active card index (computed from scroll progress)
-  const [activeIndex, setActiveIndex] = useState(0);
-  // Overlay scale computed from the active card's relative progress
-  const [overlayScaleValue, setOverlayScaleValue] = useState(0);
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  
+  // Animate horizontal movement if needed
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  
+  // Animate the second color of the gradient from its original to a new color (e.g., #ff0000)
+  const dynamicColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["rgb(255,200,150)", "rgb(150,200,255)"]
+  );
+  
+  // Build the radial-gradient string dynamically using useMotionTemplate
+  const background = useMotionTemplate`
+    radial-gradient(circle at 12.3% 80.7%,  rgb(255,200,150) 0% , #e57eff 100.2%  )
+  `;
+ 
 
-  // useScroll relative to the overall section.
-  const { scrollYProgress } = useScroll({ target: sectionRef });
-  // Map vertical scroll progress to horizontal translation for the card container.
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-90%"]);
-  const numberOfCards = cardData.length;
-
-  // Custom check: update isStickyFull based on the sticky container's bounding rectangle.
-  useEffect(() => {
-    const handleSticky = () => {
-      if (stickyRef.current) {
-        const rect = stickyRef.current.getBoundingClientRect();
-        // The sticky container is "full" only if its top is <= 0 and its bottom is >= viewport height.
-        if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-          setIsStickyFull(true);
-        } else {
-          setIsStickyFull(false);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleSticky);
-    window.addEventListener("resize", handleSticky);
-    handleSticky();
-    return () => {
-      window.removeEventListener("scroll", handleSticky);
-      window.removeEventListener("resize", handleSticky);
-    };
-  }, []);
-
-  // Update activeIndex only when the sticky container is fully visible.
-  useEffect(() => {
-    if (!isStickyFull) return;
-    const unsubscribe = scrollYProgress.onChange((v) => {
-      // Each card occupies an equal segment; adding 0.5 delays the index change until after the midpoint.
-      const index = Math.max(
-        0,
-        Math.min(numberOfCards - 1, Math.floor(v * numberOfCards + 0.5))
-      );
-      setActiveIndex(index);
-    });
-    return unsubscribe;
-  }, [scrollYProgress, numberOfCards, isStickyFull]);
-
-  // Update overlay scale based on the active card's relative scroll progress.
-  // We calculate the relative progress "r" for the active card and then:
-  // - For r in [0, 0.3]: scale ramps up from 0 to 1.
-  // - For r in [0.3, 0.7]: scale stays at 1.
-  // - For r in [0.7, 1]: scale falls from 1 to 0.
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((v) => {
-      const seg = 1 / numberOfCards;
-      // Calculate relative progress for the active card
-      const lowerBound = activeIndex * seg;
-      let r = (v - lowerBound) / seg;
-      r = Math.max(0, Math.min(1, r));
-      let newScale = 0;
-      if (r < 0.3) {
-        newScale = r / 0.3;
-      } else if (r < 0.7) {
-        newScale = 1;
-      } else {
-        newScale = 1 - (r - 0.7) / 0.3;
-      }
-      setOverlayScaleValue(newScale);
-    });
-    return unsubscribe;
-  }, [scrollYProgress, activeIndex, numberOfCards]);
 
   return (
-    <>
-      {/* Overall Section */}
-      <section ref={sectionRef} className="relative h-[350vh]">
-        {/* Sticky container intended to fill the viewport */}
-        <div ref={stickyRef} className="sticky top-0 flex h-[100vh] items-center overflow-hidden">
-          {/* Adjust left margin (e.g., ml-[38%]) as needed */}
-          <motion.div style={{ x }} className="flex gap-4 ml-[38%] mr-0 max-md:ml-[10%]">
-            {cardData.map((card, i) => (
-              <div
-                key={i}
-                className="bg-[radial-gradient(circle_at_12.3%_19.3%,#d945ff,rgba(95,209,249,1))]
-                           w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px]
-                           rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear hover:p-2 relative"
-              >
-                <div className="w-full h-full bg-[#000] shadow-lg flex flex-col py-8 px-8 rounded-[10px]">
-                  <h1
-                    className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]
-                               text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,#e57eff,rgba(95,209,249,1))]"
-                  >
-                    {card.title}
-                  </h1>
-                  <p className="font-[600] text-[1rem] w-[100%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
-                    {card.description.slice(0, 100)}...
-                  </p>
-                </div>
+    <motion.section
+      ref={targetRef}
+      
+      className="relative h-[350vh] max-md:h-[200vh] "
+    >
+      <div className="sticky top-0 flex h-[100vh] max-md:h-[75vh] items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex gap-4 ml-[20%] mr-0 max-md:ml-[10%]">
+          {/* Your carousel items here */}
+          <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
+            <div className="  w-full h-full gap-15 bg-[#000] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap py-8 px-8 rounded-[10px]">
+              
+              <div className="flex flex-col gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e57eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+             
+                <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem] inline text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%);]">
+                  Design Skills
+                </h1>
               </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Full-Page Overlay for Active Card */}
-      <AnimatePresence>
-        {isStickyFull && cardData[activeIndex] && (
-          <motion.div
-            key={activeIndex}
-            style={{ scale: overlayScaleValue }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: overlayScaleValue > 0 ? 1 : 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-full h-full z-50 bg-black flex flex-col items-center justify-center p-4"
-          >
-            <div className="max-w-4xl text-center">
-              <h1
-                className="font-bold text-5xl text-transparent bg-clip-text 
-                           bg-[radial-gradient(circle_at_12.3%_19.3%,#e57eff,rgba(95,209,249,1))]"
-              >
-                {cardData[activeIndex].title}
-              </h1>
-              <p className="mt-4 text-lg text-[#cecdcd]">
-                {cardData[activeIndex].description}
+              <p className="font-[600] text-[1rem] w-[80%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
+                We create visually stunning and user-friendly designs that
+                captivate visitors while ensuring smooth navigation and
+                accessibility.
               </p>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+          </div>
+
+          <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[45rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
+            <div className="w-full h-full  bg-[#000] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
+              <div className="flex flex-col gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e57eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path></svg>
+                <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem] inline text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%);]">
+                  Development Expertise
+                </h1>
+              </div>
+
+              <p className="font-[600] text-[1rem] w-[89%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
+                Our developers build fast, secure, and scalable websites with
+                clean, efficient code for seamless functionality across devices.
+              </p>
+            </div>
+          </div>
+          <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
+            <div className="w-full h-full  bg-[#000000] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
+              <div className="flex flex-col gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e57eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem] inline text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%);]">
+                  Performance Optimization
+                </h1>
+              </div>
+
+              <p className="font-[600] text-[1rem] w-[80%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
+                We ensure lightning-fast load times and smooth performance
+                through code efficiency, image optimization, and responsive
+                design.
+              </p>
+            </div>
+          </div>
+          <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
+            <div className="w-full h-full  bg-[#000] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
+              <div className="flex flex-col gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e57eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-no-axes-combined"><path d="M12 16v5"></path><path d="M16 14v7"></path><path d="M20 10v11"></path><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"></path><path d="M4 18v3"></path><path d="M8 14v7"></path></svg>
+                <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem] inline text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%);]">
+                  SEO and Analytics
+                </h1>
+              </div>
+
+              <p className="font-[600] text-[1rem] w-[80%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
+                Our SEO strategies boost visibility, while data-driven insights
+                help refine performance and maximize audience engagement.
+              </p>
+            </div>
+          </div>
+          <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
+            <div className="w-full h-full  bg-[#000] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
+              <div className="flex flex-col gap-2">
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e57eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem] inline text-transparent bg-clip-text bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%);]">
+                  Adaptability and Innovation
+                </h1>
+              </div>
+
+              <p className="font-[600] text-[1rem] w-[75%] max-md:w-full max-md:text-[.75rem] text-[#cecdcd]">
+                We stay ahead of trends, integrating new technologies and
+                ensuring your website remains modern, efficient, and
+                future-proof.
+              </p>
+            </div>
+          </div>
+          {/* Add more carousel items as needed */}
+        </motion.div>
+      </div>
+    </motion.section>
   );
 };

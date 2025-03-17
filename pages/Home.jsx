@@ -88,23 +88,25 @@ export default function Home() {
 
   const variants = {
     hover: {
-      scale: 1.5,
+      height: "3rem",
+      width: "3rem",
       backgroundColor: "#e91aa3",
       x: position.x,
       y: position.y
     },
     default: {
-      x: position.x - 12,
-      y: position.y - 12,
-      scale: 1,
+      x: position.x -12 ,
+      y: position.y -12 ,
+      height: "3rem",
+      width: "3rem",
       backgroundColor: "#eee"
     },
     textHover: {
       height: "3rem",
-      width: "4px",
+      width: "5px",
       backgroundColor: "#7db8f2",
-      x: position.x - 5,
-      y: position.y - 5
+      x: position.x -5 ,
+      y: position.y -5
     }
   };
 
@@ -119,12 +121,12 @@ export default function Home() {
 
   return (
     <>
-      {/* <motion.div
-        className="fixed top-0 left-0 w-6 h-6 bg-white rounded-full pointer-events-none z-50 max-md:w-0"
+      <motion.div
+        className="fixed top-0 left-0  bg-fixed bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%)] rounded-full z-50 max-md:w-0"
         variants={variants}
         animate={cursorVarient}
         transition={{ type: "ease" }}
-      /> */}
+      /> 
       <section
         data-scroll-container
         ref={containerRef}
@@ -132,16 +134,15 @@ export default function Home() {
       >
         <section className="flex flex-col max-md:gap-[0rem] relative">
           <h1
-            className={`text-[2.5rem] text-black fixed right-[2%] max-md:right-[5%] top-[3%] z-[50] font-[500] transition-all duration-200 tracking-tight max-md:text-[1.5rem] ${
+            className={`text-[2.5rem] text-black fixed left-[2%] max-md:right-[5%] top-[3%] z-[50] font-[500] transition-all duration-200 tracking-tight max-md:text-[1.5rem] ${
               !scrollingUp ? "opacity-0" : "" // Hide navbar when scrolling down
             } `}
           >
             Webloactores
           </h1>
           <div className="w-full h-auto flex items-center gap-[5rem] text-center flex-col justify-center relative ">
-            <div className="h-screen flex flex-col bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%)] gap-8 max-md:h-[70vh] items-center justify-center max-xl:text-center h-[70vh] w-full max-xl:w-full ">
-              {/* <Misc_3 /> 
-              <Flower_2 /> */}
+            <div className="h-screen flex flex-col bg-[radial-gradient(circle_at_12.3%_19.3%,_#e57eff_0%,_rgb(95,_209,_249)_100.2%)] gap-8 max-md:h-[100vh] items-center justify-center max-xl:text-center h-[70vh] w-full max-xl:w-full ">
+              
 
               <h1
                 onMouseEnter={() => {
@@ -176,10 +177,123 @@ export default function Home() {
             </motion.div> */}
           </div>
 
+
+            
+          {window.innerWidth > 768 ? (
             <HorizontalScrollCarousel />
+          ) : (
+            <>
+              <div className="flex flex-col items-center justify-center gap-[1rem] p-4 md:hidden mt-[5rem] overflow-hidden">
+                <motion.div
+                  initial={{ translateX: -370 }}
+                  whileInView={{ translateX: 0 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
+                >
+                  <div className="flex flex-col gap-2">
+                    
+                    <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
+                      Design Skills
+                    </h1>
+                  </div>
          
 
-          <section className="w-[100%] mt-50 max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                    We create visually stunning and user-friendly designs that
+                    captivate visitors while ensuring smooth navigation and
+                    accessibility.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ translateX: -370 }}
+                  whileInView={{ translateX: 0 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
+                >
+                  <div className="flex flex-col gap-2">
+                    
+                    <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
+                      Development Expertise
+                    </h1>
+                  </div>
+
+                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                    Our developers build fast, secure, and scalable websites
+                    with clean, efficient code for seamless functionality across
+                    devices.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ translateX: -370 }}
+                  whileInView={{ translateX: 0 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
+                >
+                  <div className="flex flex-col gap-2">
+                    
+                    <h1 className="font-[400] tracking-tighter text-[1.5rem] ">
+                      Performance Optimization
+                    </h1>
+                  </div>
+
+                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                    We ensure lightning-fast load times and smooth performance
+                    through code efficiency, image optimization, and responsive
+                    design.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ translateX: -370 }}
+                  whileInView={{ translateX: 0 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
+                >
+                  <div className="flex flex-col gap-2">
+                    
+                    <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
+                      Seo and Analytics
+                    </h1>
+                  </div>
+
+                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                    Our SEO strategies boost visibility, while data-driven
+                    insights help refine performance and maximize audience
+                    engagement.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ translateX: -370 }}
+                  whileInView={{ translateX: 0 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
+                >
+                  <div className="flex flex-col gap-2">
+                    
+                    <h1 className="font-[400] tracking-tighter text-[1.75rem]">
+                      Adaptability and Innovation
+                    </h1>
+                  </div>
+
+                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                    We stay ahead of trends, integrating new technologies and
+                    ensuring your website remains modern, efficient, and
+                    future-proof.
+                  </p>
+                </motion.div>
+              </div>
+            </>)}
+         
+
+          <section className="w-[100%] mt-50 max-md:h-[60vh] h-[100vh] flex items-center justify-center ">
             <div className="w-[80%] h-full bg-[#000] relative overflow-hidden rounded-[20px] p-4">
               <motion.div
                 initial={{ }}
