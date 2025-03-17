@@ -39,12 +39,12 @@ export default function ServicesSection() {
   return (
     <>
       <section
-        className="relative min-h-[165vh] mt-[10rem] max-md:min-h-[270vh] max-md:mt-[5rem]"
+        className="relative min-h-[165vh] mt-[10rem] max-md:min-h-[300vh] max-md:mt-[5rem]"
         style={{
           clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%, 0 100%)",
         }}
       >
-        <section className="h-[200vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
+        <section className="h-[210vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
           {/* Section 1 */}
           <div
             data-sticky
@@ -65,7 +65,7 @@ export default function ServicesSection() {
                 </ul>
               </div>
 
-              <div>
+              <div className="flex flex-col w-[80%] h-full gap-[2rem]">
                 <img
                   src="/pexels-firosnv-8171308.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
@@ -94,7 +94,7 @@ export default function ServicesSection() {
                 </ul>
               </div>
 
-              <div>
+              <div className="flex flex-col w-[80%] h-full gap-[2rem]">
                 <img
                   src="/pexels-tranmautritam-285814.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
@@ -122,7 +122,7 @@ export default function ServicesSection() {
                   <li>CDN & Caching Solutions</li>
                 </ul>
               </div>
-              <div>
+              <div className="flex flex-col w-[80%] h-full gap-[2rem]">
                 <img
                   src="/pexels-tara-winstead-8386440.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
@@ -151,7 +151,7 @@ export default function ServicesSection() {
                 </ul>
               </div>
 
-              <div className="flex flex-col w-[30%] h-full gap-[2rem]">
+              <div className="flex flex-col w-[80%] h-full gap-[2rem]">
                 <img
                   src="/pexels-fotios-photos-16129703.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
@@ -180,7 +180,7 @@ export default function ServicesSection() {
                 </ul>
               </div>
 
-              <div>
+              <div className="flex flex-col w-[80%] h-full gap-[2rem]">
                 <img
                   src="/pexels-ivan-samkov-7620619.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
