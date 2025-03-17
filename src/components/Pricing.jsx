@@ -7,7 +7,7 @@ export default function Pricing() {
         <div className="p-4 h-fit flex flex-col gap-8 border border-[#eee] rounded-[10px] bg-[#f9fbfc]">
           <h1 className="text-[1.5rem] font-[500] text-[#2563EB]">Basic</h1>
           <div className="flex items-end gap-2">
-            <h1 className="text-[3rem] font-[600]">$500 - $1,500</h1>
+            <h1 className="text-[3rem] max-md:text-[2rem] font-[600]">$500 - $1,500</h1>
           </div>
           <p>
             Perfect for: Startups, personal projects, or small businesses
@@ -52,7 +52,7 @@ export default function Pricing() {
         <div className="p-10 h-fit flex flex-col gap-8 border bg-[#000] text-white border-[#eee] rounded-[10px]">
           <h1 className="text-[1.5rem] font-[500] text-[#5d8df5]">Standard</h1>
           <div className="flex items-end gap-2">
-            <h1 className="text-[3rem] font-[600]">$1,500 - $5,000</h1>
+            <h1 className="text-[3rem] font-[600] max-md:text-[2rem]">$1,500 - $5,000</h1>
           </div>
           <p>
             Perfect for: Startups, personal projects, or small businesses
@@ -102,7 +102,7 @@ export default function Pricing() {
         <div className="p-4 px-8 h-fit flex flex-col gap-8 border border-[#eee] rounded-[10px] bg-[#f9fbfc]">
           <h1 className="text-[1.5rem] font-[500] text-[#2563EB]">Custom</h1>
           <div className="flex items-end gap-2">
-            <h1 className="text-[3rem] font-[600]">$5,000 - $15,000+</h1>
+            <h1 className="text-[3rem] font-[600] max-md:text-[2rem]">$5,000 - $15,000+</h1>
           </div>
           <p>
             Perfect for: Startups, personal projects, or small businesses

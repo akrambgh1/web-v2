@@ -1,14 +1,9 @@
-
-
-  import { useRef } from "react";
-  import { motion, useTransform } from "framer-motion";
-    import { useScroll } from "framer-motion";
+import { useRef } from "react";
+import { motion, useTransform, useScroll, useMotionTemplate } from "framer-motion";
 
 export const HorizontalScrollCarousel = () => {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-      target: targetRef
-    });
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
   
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
   
@@ -19,9 +14,9 @@ export const HorizontalScrollCarousel = () => {
             style={{ x }}
             className="flex gap-4 ml-[20%] mr-0 max-md:ml-[10%]"
           >
-            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-1">
+            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
               <div className="w-full h-full justify-between bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   
                   <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]">
                     Design Skills
@@ -36,9 +31,9 @@ export const HorizontalScrollCarousel = () => {
               </div>
             </div>
   
-            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[45rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-1">
+            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[45rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
               <div className="w-full h-full justify-between bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   
                   <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]">
                     Development Expertise
@@ -51,9 +46,9 @@ export const HorizontalScrollCarousel = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-1">
+            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
               <div className="w-full h-full justify-between bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   
                   <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]">
                     Performance Optimization
@@ -67,9 +62,9 @@ export const HorizontalScrollCarousel = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-1">
+            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
               <div className="w-full h-full justify-between bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   
                   <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]">
                     SEO and Analytics
@@ -82,9 +77,9 @@ export const HorizontalScrollCarousel = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-1">
+            <div className="bg-[radial-gradient(circle_at_12.3%_19.3%,_#d945ff_0%,_rgb(95,_209,_249)_100.2%);] w-[40rem] max-md:w-[20rem] h-[350px] max-md:h-[350px] rounded-[13px] p-0 cursor-pointer transition-all duration-200 ease-linear relative hover:p-2">
               <div className="w-full h-full justify-between bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col gap-15 py-8 px-8 rounded-[10px]">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   <h1 className="font-[400] tracking-tighter text-[3rem] max-md:text-[2rem]">
                     Adaptability and Innovation
                   </h1>
