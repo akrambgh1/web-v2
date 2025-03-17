@@ -56,7 +56,7 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Custom Website Development</h1>
+                <h1 className="text-[3rem] max-md:text-[1.5rem]">Custom Website Development</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Business Websites</li>
                   <li>E-commerce Solutions</li>
@@ -85,7 +85,7 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">User Experience & Interface Design</h1>
+                <h1 className="text-[3rem] max-md:text-[1.5rem]">User Experience & Interface Design</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>UI/UX Design</li>
                   <li>Wireframing & Prototyping</li>
@@ -114,7 +114,7 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Web Performance & Security</h1>
+                <h1 className="text-[3rem] max-md:text-[1.5rem]">Web Performance & Security</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Speed & Performance Optimization</li>
                   <li>Security Enhancements & SSL Setup</li>
@@ -142,7 +142,7 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">SEO & Online Growth Strategy</h1>
+                <h1 className="text-[3rem] max-md:text-[1.5rem]">SEO & Online Growth Strategy</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>On-Page & Technical SEO</li>
                   <li>Keyword Optimization</li>
@@ -171,7 +171,7 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">E-commerce Development</h1>
+                <h1 className="text-[3rem] max-md:text-[1.5rem]">E-commerce Development</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Custom Online Stores</li>
                   <li>Payment Gateway Integration</li>
