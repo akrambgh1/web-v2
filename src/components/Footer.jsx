@@ -1,39 +1,46 @@
 export default function Footer() {
-    return (
-      <section className="fixed w-full bottom-0 h-[100vh] flex flex-col gap-[8rem] py-[2rem] bg-[#2563EB]">
-        <div className="flex justify-between w-full px-[5rem] items-center">
-            <h1 className="text-[0rem] text-black">Weblocators</h1>
-
-            <ul className="flex gap-[2rem] text-black max-md:hidden">
-                <li className="cursor-pointer">Work</li>
-                <li className="cursor-pointer">About</li>
-                <li className="cursor-pointer">Contact</li>
-            </ul>
+  return (
+    <section className="fixed w-full bottom-0 h-[70dvh] max-md:h-[100vh] flex flex-col gap-[8rem] p-[1rem] items-center justify-center bg-[#fafafa] max-md:p-0">
+      <div className="w-[50%] h-full flex flex-col gap-8 items-center justify-center max-2xl:w-[70%] max-lg:w-[90%]">
+        <div className="w-full h-auto py-8 flex items-center justify-between rounded-[15px] max-md:p-0 max-md:flex-col max-md:gap-4">
+          <h1 className="font-[500] text-[2rem] tracking-tighter text-black max-lg:text-[1.25rem] max-md:text-[1.25rem] max-md:uppercase">
+            EXCITED? US TOO. Let’s get moving.
+          </h1>
+          <button className="bg-[#c0dbff] text-black font-[500] py-2 px-8 rounded-[5px] max-md:p-2 max-md:w-[80%] max-md:hidden">
+            Contact us
+          </button>
+        </div>
+        <div className="flex gap-4 w-[100%] max-md:grid max-md:grid-cols-2 max-md:gap-4">
+          <div className="flex-1 h-[15vh] bg-[#c0dbff] rounded-[10px] flex items-center justify-center">
+            <img src="/instagram.png" />
+          </div>
+          <div className="flex-1 h-[15vh] bg-[#c0dbff] rounded-[10px] flex items-center justify-center">
+            <img src="/twitter.png" />
+          </div>
+          <div className="flex-1 h-[15vh] bg-[#c0dbff] rounded-[10px] flex items-center justify-center">
+            <img src="/linkedin.png" />
+          </div>
+          <div className="flex-1 h-[15vh] bg-[#c0dbff] rounded-[10px] flex items-center justify-center">
+            <img src="/dribble.png" />
+          </div>
         </div>
 
-
-        <div className="flex flex-col px-[2rem] gap-[4rem] max-md:px-2">
-            <div className="flex flex-col justify-center text-black">
-               <h1 className="text-[10rem] tracking-tight max-md:tracking-tight max-md:text-[2rem] text-white">Get in touch</h1> 
-               <a className="text-[4rem] underline cursor-pointer max-md:tracking-tight max-md:text-[1.5rem] text-white">contactus@weblocators.com</a>
+        <div className="w-full flex gap-4 rounded-[15px] max-md:flex-col">
+          <div className="w-[40%] max-md:w-full max-md:h-[40vh] h-[20vh] bg-[#2163f1] rounded-[10px] flex items-center justify-center p-8">
+            <img src="/Weblocators2.png" />
+          </div>
+          <div className="w-[60%] h-[20vh] rounded-[15px] px-5 relative flex flex-col justify-evenly max-md:w-full max-md:h-auto max-md:p-0">
+            <div className="grid grid-cols-2 gap-4 list-none w-[40%] pt-2 max-md:flex max-md:w-full max-md:justify-between max-md:p-0">
+              <li className="cursor-pointer">Pricing</li>
+              <li className="cursor-pointer">Projects</li>
+              <li className="cursor-pointer">About</li>
+              <li className="cursor-pointer">Contact</li>
             </div>
 
-            <div className="flex flex-col gap-[3rem] pb-[3rem] text-black">
-                <h1 className="text-[3rem]">Socials</h1>
-                <div className="grid grid-cols-[repeat(3,_1fr)] grid-rows-[repeat(2,_1fr)] gap-2 list-none w-[50%] text-black max-md:flex max-md:flex-col max-md:text-[2rem]">
-                    <li>Instagram</li>
-                    <li>linkedIn</li>
-                    <li>Facebook</li>
-                    <li>twitter</li>
-                    <li>Pintrest</li>
-                    <li>Youtube</li>
-                </div>
-            </div>
-            
-
+            {/* <h1 className="">© 2025 Weblocators</h1> */}
+          </div>
         </div>
-
-      </section>
-    )
-
+      </div>
+    </section>
+  );
 }

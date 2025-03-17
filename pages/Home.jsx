@@ -22,7 +22,7 @@ import {
   Laptop,
   Zap,
   ChartNoAxesCombined,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 import { HorizontalScrollCarousel } from "@/components/HorizontalScrollCarousel";
 
@@ -60,9 +60,9 @@ export default function Home() {
     const scroll = new LocomotiveScroll({
       el: containerRef.current,
       smooth: true,
-      multiplier: .02,
+      multiplier: 0.02,
       lenisOptions: 0.001,
-      class: "is-reveal"
+      class: "is-reveal",
     });
 
     return () => {
@@ -70,7 +70,7 @@ export default function Home() {
     };
   }, []);
 
-  const scale = useTransform(scrollYProgress, [0.44, .5], ["2", "80"]);
+  const scale = useTransform(scrollYProgress, [0.5, 0.6], ["3", "75"]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -91,21 +91,21 @@ export default function Home() {
       scale: 1.5,
       backgroundColor: "#e91aa3",
       x: position.x,
-      y: position.y
+      y: position.y,
     },
     default: {
       x: position.x - 12,
       y: position.y - 12,
       scale: 1,
-      backgroundColor: "#eee"
+      backgroundColor: "#eee",
     },
     textHover: {
       height: "3rem",
       width: "4px",
       backgroundColor: "#7db8f2",
       x: position.x - 5,
-      y: position.y - 5
-    }
+      y: position.y - 5,
+    },
   };
 
   const prev = () =>
@@ -131,18 +131,15 @@ export default function Home() {
         className="flex flex-col"
       >
         <section className="flex flex-col max-md:gap-[0rem] relative">
-          <h1
+          {/* <h1
             className={`text-[2.5rem] text-black fixed right-[2%] max-md:right-[5%] top-[3%] z-[50] font-[500] transition-all duration-200 tracking-tight max-md:text-[1.5rem] ${
               !scrollingUp ? "opacity-0" : "" // Hide navbar when scrolling down
             } `}
           >
             Webloactores
-          </h1>
+          </h1> */}
           <div className="w-full h-auto flex items-center gap-[5rem] text-center flex-col justify-center relative ">
-            <div className="flex flex-col gap-8 max-md:h-[70vh] items-center justify-center max-xl:text-center h-[70vh] w-full max-xl:w-full ">
-              {/* <Misc_3 /> 
-              <Flower_2 /> */}
-
+            <div className="flex flex-col relative gap-8 max-md:h-[70vh] items-center justify-center max-xl:text-center h-[100vh] w-full max-xl:w-full p-4 px-8">
               <h1
                 onMouseEnter={() => {
                   setCursorVariant("textHover");
@@ -184,11 +181,10 @@ export default function Home() {
                   initial={{ translateX: -370 }}
                   whileInView={{ translateX: 0 }}
                   transition={{ ease: "easeInOut", duration: 1 }}
-                  viewport={{ amount: 0 , once: true}}
+                  viewport={{ amount: 0, once: true }}
                   className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
                 >
                   <div className="flex flex-col gap-2">
-                    
                     <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
                       Design Skills
                     </h1>
@@ -205,11 +201,10 @@ export default function Home() {
                   initial={{ translateX: -370 }}
                   whileInView={{ translateX: 0 }}
                   transition={{ ease: "easeInOut", duration: 1 }}
-                  viewport={{ amount: 0 , once: true}}
+                  viewport={{ amount: 0, once: true }}
                   className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
                 >
                   <div className="flex flex-col gap-2">
-                    
                     <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
                       Development Expertise
                     </h1>
@@ -226,11 +221,10 @@ export default function Home() {
                   initial={{ translateX: -370 }}
                   whileInView={{ translateX: 0 }}
                   transition={{ ease: "easeInOut", duration: 1 }}
-                  viewport={{ amount: 0 , once: true}}
+                  viewport={{ amount: 0, once: true }}
                   className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
                 >
                   <div className="flex flex-col gap-2">
-                    
                     <h1 className="font-[400] tracking-tighter text-[1.5rem] ">
                       Performance Optimization
                     </h1>
@@ -247,11 +241,10 @@ export default function Home() {
                   initial={{ translateX: -370 }}
                   whileInView={{ translateX: 0 }}
                   transition={{ ease: "easeInOut", duration: 1 }}
-                  viewport={{ amount: 0 , once: true}}
+                  viewport={{ amount: 0, once: true }}
                   className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
                 >
                   <div className="flex flex-col gap-2">
-                    
                     <h1 className="font-[400] tracking-tighter text-[1.75rem] ">
                       Seo and Analytics
                     </h1>
@@ -268,11 +261,10 @@ export default function Home() {
                   initial={{ translateX: -370 }}
                   whileInView={{ translateX: 0 }}
                   transition={{ ease: "easeInOut", duration: 1 }}
-                  viewport={{ amount: 0 , once: true}}
+                  viewport={{ amount: 0, once: true }}
                   className="w-full h-[11rem] bg-[#fff] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] max-md:w-full flex flex-col justify-between gap-[12px] p-4 rounded-[5px]"
                 >
                   <div className="flex flex-col gap-2">
-                    
                     <h1 className="font-[400] tracking-tighter text-[1.75rem]">
                       Adaptability and Innovation
                     </h1>
@@ -288,14 +280,14 @@ export default function Home() {
             </>
           )}
 
-          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden">
-            <div className="w-[80%] h-full bg-[#000] relative overflow-hidden rounded-[20px] p-4">
+          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
+            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
               <motion.div
-                initial={{ }}
+                initial={{}}
                 style={{ scale }}
                 transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
-                viewport={{ amount: .5 }}
-                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#A97BFC] rounded-full"
+                viewport={{ amount: 0.5 }}
+                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#1aa3ff] rounded-full"
               ></motion.div>
 
               <motion.h1
@@ -321,13 +313,9 @@ export default function Home() {
             </div>
           </section>
 
-          
-            <ServicesSection></ServicesSection>
+          <ServicesSection></ServicesSection>
 
-
-          
-          
-          <Pricing></Pricing>
+          {/* <Pricing></Pricing> */}
           <section className="flex flex-col items-center justify-center gap-[3rem] max-md:p-4 mt-[3rem]">
             <div className="flex flex-col items-center justify-center gap-2">
               <h1 className="text-[4rem] tracking-tighter max-md:text-[2rem] max-md:text-center font-[600] max-md:leading-10 ">
@@ -361,7 +349,7 @@ export default function Home() {
             </div>
           </section>
           <section
-            className="relative h-[100vh] mt-[5rem]"
+            className="relative h-[70dvh] max-md:h-[100vh] mt-[5rem]"
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
           >
             <Footer></Footer>
@@ -371,4 +359,3 @@ export default function Home() {
     </>
   );
 }
-

@@ -50,12 +50,12 @@ export default function ServicesSection() {
             className="sticky top-0 z-1 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15%] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[0] ? "bg-[#A97BFC]" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Brand Design</h1>
+                <h1 className="text-[3rem] max-md:text-[1.75rem] text-[#ddcbfe]">Brand Design</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Brand Research + Analysis</li>
                   <li>Brand Strategy + Positioning</li>
@@ -79,7 +79,7 @@ export default function ServicesSection() {
             className="sticky top-[85px] z-1 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between gap-4 transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15%] max-md:px-4 max-md:flex-col justify-between gap-4 transition-colors duration-300 max-md:gap-4 ${
                 activeSections[85] ? "bg-[#B58CFD]" : "bg-[#fff]"
               }`}
             >
@@ -108,12 +108,12 @@ export default function ServicesSection() {
             className="sticky top-[170px] z-3 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15%] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[170] ? "bg-[#D0B5FF]" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Visual Identity</h1>
+                <h1 className={`text-[3rem] max-md:text-[1.75rem] ${activeSections[170] ? "text-[#ece0ff]" : ""}`}>Visual Identity</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Logo Design</li>
                   <li>Typography</li>
@@ -137,12 +137,12 @@ export default function ServicesSection() {
             className="sticky top-[255px] z-3 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15%] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[255] ? "bg-[#ddcbfe]" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Digital Presence</h1>
+                <h1 className={`text-[3rem] max-md:text-[1.75rem] ${activeSections[255] ? "text-[#9762fa]" : ""}`}>Digital Presence</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
                   <li>Website Design</li>
                   <li>Social Media Strategy</li>
