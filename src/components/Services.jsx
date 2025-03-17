@@ -8,19 +8,20 @@ export default function ServicesSection() {
     85: false,
     170: false,
     255: false,
+    340: false
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const stickyElements = document.querySelectorAll("[data-sticky]");
-      const newActiveSections = { 0: false, 85: false, 170: false, 255: false };
+      const newActiveSections = { 0: false, 85: false, 170: false, 255: false,340: false };
 
       stickyElements.forEach((el) => {
         const topValue = el.getBoundingClientRect().top;
 
         // Check for close values (within ±5px)
         Object.keys(newActiveSections).forEach((key) => {
-          if (Math.abs(topValue - parseInt(key)) <= 5) {
+          if (Math.abs(topValue - parseInt(key)) <= 6) {
             newActiveSections[key] = true;
           }
         });
@@ -38,12 +39,12 @@ export default function ServicesSection() {
   return (
     <>
       <section
-        className="relative min-h-[140vh] mt-[10rem] max-md:min-h-[250vh] max-md:mt-[5rem]"
+        className="relative min-h-[165vh] mt-[10rem] max-md:min-h-[270vh] max-md:mt-[5rem]"
         style={{
-          clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
+          clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%, 0 100%)",
         }}
       >
-        <section className="h-[180vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
+        <section className="h-[200vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
           {/* Section 1 */}
           <div
             data-sticky
@@ -55,18 +56,18 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Brand Design</h1>
+                <h1 className="text-[3rem] max-md:text-[1.75rem]">Custom Website Development</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Brand Research + Analysis</li>
-                  <li>Brand Strategy + Positioning</li>
-                  <li>Brand Naming + Story</li>
-                  <li>Brand Activation</li>
+                  <li>Business Websites</li>
+                  <li>E-commerce Solutions</li>
+                  <li>Portfolio & Personal Websites</li>
+                  <li>Web Applications</li>
                 </ul>
               </div>
 
               <div>
                 <img
-                  src="/landing.jpg"
+                  src="/pexels-firosnv-8171308.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -84,18 +85,18 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Brand Strategy</h1>
+                <h1 className="text-[3rem] max-md:text-[1.75rem]">User Experience & Interface Design</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Market Research</li>
-                  <li>Competitive Analysis</li>
-                  <li>Brand Positioning</li>
-                  <li>Messaging Framework</li>
+                  <li>UI/UX Design</li>
+                  <li>Wireframing & Prototyping</li>
+                  <li>Mobile-Friendly & Responsive Layouts</li>
+                  <li>Accessibility Optimization</li>
                 </ul>
               </div>
 
               <div>
                 <img
-                  src="/landing.jpg"
+                  src="/pexels-tranmautritam-285814.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -113,18 +114,17 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Visual Identity</h1>
+                <h1 className="text-[3rem] max-md:text-[1.75rem]">Web Performance & Security</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Logo Design</li>
-                  <li>Typography</li>
-                  <li>Color Palette</li>
-                  <li>Imagery Guidelines</li>
+                  <li>Speed & Performance Optimization</li>
+                  <li>Security Enhancements & SSL Setup</li>
+                  <li>Mobile & Cross-Browser Compatibility</li>
+                  <li>CDN & Caching Solutions</li>
                 </ul>
               </div>
-
               <div>
                 <img
-                  src="/landing.jpg"
+                  src="/pexels-tara-winstead-8386440.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
@@ -142,22 +142,52 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem]">
-                <h1 className="text-[3rem] max-md:text-[1.75rem]">Digital Presence</h1>
+                <h1 className="text-[3rem] max-md:text-[1.75rem]">SEO & Online Growth Strategy</h1>
                 <ul className="flex flex-col gap-2 tracking-tighter">
-                  <li>Website Design</li>
-                  <li>Social Media Strategy</li>
-                  <li>Content Creation</li>
-                  <li>Online Campaigns</li>
+                  <li>On-Page & Technical SEO</li>
+                  <li>Keyword Optimization</li>
+                  <li>Content Strategy</li>
+                  <li>Google Analytics & Performance Tracking</li>
+                </ul>
+              </div>
+
+              <div className="flex flex-col w-[30%] h-full gap-[2rem]">
+                <img
+                  src="/pexels-fotios-photos-16129703.jpg"
+                  className="object-cover w-full h-[30vh] rounded-[5px]"
+                />
+              </div>
+            </motion.div>
+            
+          </div>
+           {/* Section 5*/}
+           <div
+            data-sticky
+            className="sticky top-[340px] z-4 h-auto w-full overflow-visible"
+          >
+            <motion.div
+              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+                activeSections[340] ? "bg-[#e6dafb]" : "bg-[#fff]"
+              }`}
+            >
+              <div className="flex flex-col w-[70%] h-full gap-[2rem]">
+                <h1 className="text-[3rem] max-md:text-[1.75rem]">E-commerce Development</h1>
+                <ul className="flex flex-col gap-2 tracking-tighter">
+                  <li>Custom Online Stores</li>
+                  <li>Payment Gateway Integration</li>
+                  <li>Inventory & Order Management</li>
+                  <li>Sales & Conversion Optimization</li>
                 </ul>
               </div>
 
               <div>
                 <img
-                  src="/landing.jpg"
+                  src="/pexels-ivan-samkov-7620619.jpg"
                   className="object-cover w-full h-[30vh] rounded-[5px]"
                 />
               </div>
             </motion.div>
+            
           </div>
         </section>
       </section>

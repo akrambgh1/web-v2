@@ -153,7 +153,8 @@ export default function Home() {
                 Give a new start to <br /> your buisness
               </h1>
               <p className="text-[2rem] text-[#000] w-[55%] max-xl:w-[90%] max-md:text-[1rem]">
-                An AI-native workspace that gives you an unfair advantage
+              Transforming Ideas into Stunning Websites that Drive Results
+                
               </p>
 
               <button className="bg-[#062357] text-[#94c2ff] py-3 w-fit px-8 rounded-[5px] cursor-pointer">
