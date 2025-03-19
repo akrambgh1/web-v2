@@ -70,7 +70,7 @@ export default function Home() {
     };
   }, []);
 
-  const scale = useTransform(scrollYProgress, [0.1, 0.4], ["10", "800"]);
+  const scale = useTransform(scrollYProgress, [0.2, 0.5], ["2", "140"]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -115,6 +115,37 @@ export default function Home() {
 
   const slides = ["SafeGuard Horizon"];
 
+  const qualities = [
+    {
+      title: "Creativity",
+      description: "Craft unique, visually appealing designs.",
+    },
+    {
+      title: "Technical Expertise",
+      description: "Master modern web technologies and frameworks.",
+    },
+    {
+      title: "User-Centered Approach",
+      description: "Focus on intuitive, user-friendly experiences.",
+    },
+    {
+      title: "Project Management",
+      description: "Deliver projects on time with clear communication.",
+    },
+    {
+      title: "Attention to Detail",
+      description: "Ensure pixel-perfect design and clean code.",
+    },
+    {
+      title: "Adaptability",
+      description: "Stay ahead of trends and adapt to new technologies.",
+    },
+    {
+      title: "Collaboration",
+      description: "Work closely with clients to understand their vision.",
+    },
+  ];
+
   //
 
   return (
@@ -130,9 +161,9 @@ export default function Home() {
         ref={containerRef}
         className="flex flex-col relative"
       >
-        <section className="flex flex-col max-md:gap-[0rem] relative">
-          <div className="w-full h-auto flex items-center gap-[5rem] flex-col justify-center relative mb-[3rem]">
-            <div className="flex justify-between gap-8 max-md:h-[70vh] max-xl:text-center h-[100vh] w-full max-xl:w-full relative">
+        <section className="flex flex-col max-md:gap-[0rem] relative gap-[15rem]">
+          <div className="w-full h-auto flex items-center flex-col justify-center relative mb-[3rem]">
+            <div className="flex justify-between gap-8 max-md:h-[70vh] max-xl:text-center h-[70vh] w-full max-xl:w-full relative">
               <div className="w-full flex flex-col items-center justify-center text-center h-[100%] absolute bottom-0 gap-8">
                 <h1 className="text-[7rem] tracking-tighter font-[500] max-md:text-[2.5rem] leading-23 max-xl:leading-21 w-[60%] max-xl:text-[4rem] max-md:leading-14 max-md:w-full">
                   Give a new start to your buisness
@@ -152,39 +183,7 @@ export default function Home() {
             </div>
           </div>
 
-          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
-            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
-              <motion.div
-                initial={{}}
-                style={{ scale }}
-                transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
-                viewport={{ amount: 0.5 }}
-                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#2163f1] rounded-full"
-              ></motion.div>
-
-              <motion.h1
-                onMouseEnter={() => {
-                  setCursorVariant("textHover");
-                }}
-                onMouseLeave={handleMouseLeave}
-                className="font-bold text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
-                initial={{ opacity: 0, translateY: 25 }}
-                whileInView={{ opacity: 1, translateY: 0 }}
-                viewport={{ amount: 0.9 }}
-                transition={{ ease: easeInOut, duration: 0.5 }}
-              >
-                Crafting high-performing websites that drive success whenever
-                and however you need them.
-              </motion.h1>
-
-              <p className="absolute bottom-[10%] right-[5%] w-[40%] font-[500] text-[#fff] text-[1.25rem] max-md:text-[.75rem] max-md:w-[90%]">
-                Let’s not create just for the sake of it. Let’s craft something
-                that’s as meaningful as it is memorable. At Studio by Miyagami,
-                we don’t just design; we build legacies—bold and unforgettable.
-              </p>
-            </div>
-          </section>
-          {window.innerWidth > 768 ? (
+          {/* {window.innerWidth > 768 ? (
             <HorizontalScrollCarousel />
           ) : (
             <>
@@ -290,7 +289,84 @@ export default function Home() {
                 </motion.div>
               </div>
             </>
-          )}
+          )} */}
+
+          <section className="px-4 sm:px-[2.5rem]">
+            {/* <h1 className="text-[2rem] tracking-tighter sm:text-[3rem] w-full shrink-0 mb-[3rem] md:mb-[16rem]">
+              Why choose us ?
+            </h1> */}
+            <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-18 sm:gap-x-5">
+              <div className="relative sm:col-span-7">
+                <div className="sticky top-[40vh] w-full flex flex-col gap-y-5 sm:gap-y-8 ">
+                  <p className="text-base sm:text-[1.5rem] h-auto font-[500] tracking-tighter">
+                    With weblocators step into a universe where creativity meets
+                    professionalism, sprinkled with a dash of cosmic charm.
+                    Whether you’re a future collaborator or a valued client,
+                    these guiding principles light our way as we journey
+                    together
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-y-2 border-b border-gray-200 sm:col-start-9 sm:col-span-10 list-none">
+                <div>
+                  {qualities.map((quality, index) => (
+                    <motion.div
+                      initial={{ opacity: 0, translateY: "20px" }}
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      transition={{ ease: easeInOut, duration: 0.5 }}
+                      viewport={{ amount: 1 }}
+                      key={index}
+                      className="py-7 border-t border-gray-200 items-center flex w-full"
+                    >
+                      <div className="translate-y-0 opacity-100 flex flex-col md:flex-row duration-500 md:justify-between md:items-center w-full">
+                        <h1 className="text-[1.5rem] text-gray-600 tracking-[-0.07813rem] sm:text-[2rem] sm:w-80 shrink-0">
+                          {quality.title}
+                        </h1>
+                        <li className="text-xs tracking-tighter text-gray-400 sm:text-[1.5rem] sm:w-[48%]">
+                          {quality.description}
+                        </li>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
+            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
+              <motion.div
+                initial={{}}
+                style={{ scale }}
+                transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
+                viewport={{ amount: 0.5 }}
+                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#2163f1] rounded-full"
+              ></motion.div>
+
+              <motion.h1
+                onMouseEnter={() => {
+                  setCursorVariant("textHover");
+                }}
+                onMouseLeave={handleMouseLeave}
+                className="font-bold text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
+                initial={{ opacity: 0, translateY: 25 }}
+                whileInView={{ opacity: 1, translateY: 0 }}
+                viewport={{ amount: 0.9 }}
+                transition={{ ease: easeInOut, duration: 0.5 }}
+              >
+                Crafting high-performing websites that drive success whenever
+                and however you need them.
+              </motion.h1>
+
+              <p className="absolute bottom-[10%] right-[5%] w-[40%] font-[500] text-[#fff] text-[1.25rem] max-md:text-[.75rem] max-md:w-[90%]">
+                Let’s not create just for the sake of it. Let’s craft something
+                that’s as meaningful as it is memorable. At Studio by Miyagami,
+                we don’t just design; we build legacies—bold and unforgettable.
+              </p>
+            </div>
+          </section>
 
           <ServicesSection></ServicesSection>
 

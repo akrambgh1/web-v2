@@ -29,12 +29,12 @@ export default function Footer() {
           <div className="w-[40%] max-md:w-full max-md:h-[40vh] h-[20vh] bg-[#2163f1] rounded-[10px] flex items-center justify-center p-8">
             <img src="/Weblocators2.png" />
           </div>
-          <div className="w-[60%] h-[20vh] rounded-[15px] px-5 relative flex flex-col justify-evenly max-md:w-full max-md:h-auto max-md:p-0 max-md:hidden bg-[#2163f1]">
+          <div className="w-[60%] h-[20vh] rounded-[15px] px-5 relative flex flex-col justify-evenly max-md:w-full max-md:h-auto max-md:rounded-[5px] max-md:p-4 bg-[#2163f1]">
             <div className="flex items-center justify-evenly gap-4 list-none pt-2 max-md:flex max-md:w-full max-md:justify-between max-md:p-0 text-2xl text-white">
-              <li className="cursor-pointer">Pricing</li>
-              <li className="cursor-pointer">Projects</li>
-              <li className="cursor-pointer">About</li>
-              <li className="cursor-pointer">Contact</li>
+              <li className="cursor-pointer max-md:text-[1rem]">Pricing</li>
+              <li className="cursor-pointer max-md:text-[1rem]">Projects</li>
+              <li className="cursor-pointer max-md:text-[1rem]">About</li>
+              <li className="cursor-pointer max-md:text-[1rem]">Contact</li>
             </div>
 
             {/* <h1 className="">© 2025 Weblocators</h1> */}

@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -8,13 +7,19 @@ export default function ServicesSection() {
     85: false,
     170: false,
     255: false,
-    340: false
+    340: false,
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const stickyElements = document.querySelectorAll("[data-sticky]");
-      const newActiveSections = { 0: false, 85: false, 170: false, 255: false , 340: false};
+      const newActiveSections = {
+        0: false,
+        85: false,
+        170: false,
+        255: false,
+        340: false,
+      };
 
       stickyElements.forEach((el) => {
         const topValue = el.getBoundingClientRect().top;
@@ -45,6 +50,9 @@ export default function ServicesSection() {
         }}
       >
         <section className="h-[212vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
+          {/* <h1 className="text-[2rem] tracking-tighter text-center sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[16rem]">
+            What do we provide ?
+          </h1> */}
           {/* Section 1 */}
           <div
             data-sticky
@@ -56,7 +64,9 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[2.5rem] font-[400] max-md:text-[1.75rem]">Website Design & Development</h1>
+                <h1 className="text-[2.5rem] font-[400] max-md:text-[1.75rem]">
+                  Website Development
+                </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Business Websites</li>
                   <li>Frontend and backend development</li>
@@ -86,7 +96,9 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Brand Strategy</h1>
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                  Brand Strategy
+                </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Market Research</li>
                   <li>Competitive Analysis</li>
@@ -115,7 +127,9 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Visual Identity</h1>
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                  Visual Identity
+                </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Logo Design</li>
                   <li>Typography</li>
@@ -144,7 +158,9 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">SEO & Digital Marketing</h1>
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                  SEO & Digital Marketing
+                </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>On-page and off-page SEO</li>
                   <li>Social media integration</li>
@@ -171,7 +187,9 @@ export default function ServicesSection() {
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">Hosting & Maintenance</h1>
+                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                  Hosting & Maintenance
+                </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
                   <li>Web hosting setup</li>
                   <li>Ongoing maintenance and support</li>
