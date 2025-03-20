@@ -97,7 +97,7 @@ export default function Home() {
       x: position.x - 12,
       y: position.y - 12,
       scale: 1,
-      backgroundColor: "#1e1e1e",
+      backgroundColor: "#fff",
     },
     textHover: {
       height: "3rem",
@@ -151,37 +151,68 @@ export default function Home() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 bg-white rounded-full pointer-events-none z-50 max-md:w-0"
+        className="fixed top-0 left-0 w-12 h-12 bg-black rounded-full pointer-events-none z-50 max-md:w-0 mix-blend-difference"
         variants={variants}
         animate={cursorVarient}
         transition={{ type: "ease" }}
       />
+
       <section
         data-scroll-container
         ref={containerRef}
         className="flex flex-col relative"
       >
         <section className="flex flex-col max-md:gap-[0rem] relative gap-[15rem]">
-          <div className="w-full h-auto flex items-center flex-col justify-center relative mb-[3rem]">
-            <div className="flex justify-between gap-8 max-md:h-[70vh] max-xl:text-center h-[70vh] w-full max-xl:w-full relative">
-              <div className="w-full flex flex-col items-center justify-center text-center h-[100%] absolute bottom-0 gap-8">
-                <h1 className="text-[7rem] tracking-tighter font-[500] max-md:text-[2.5rem] leading-23 max-xl:leading-21 w-[60%] max-xl:text-[4rem] max-md:leading-14 max-md:w-full">
-                  Give a new start to your buisness
-                </h1>
-                <div className="flex flex-col gap-4 items-center justify-center">
-                  <p className="w-[40%] text-[1.25rem] max-xl:w-[90%] max-md:text-[1rem]">
-                    At Weblocators, we create sleek, user-focused websites that
-                    combine design and performance to help businesses shine
-                    online.
-                  </p>
+          <div className="h-[100vh] w-full relative max-md:h-[100vh]">
+            <motion.div
+              className="absolute bottom-[2rem] max-md:top-[2rem] h-fit max-md:h-fit px-2"
+              style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+            >
+              <motion.img
+                initial={{ translateY: "100%" }}
+                whileInView={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                src="/Weblocators.png"
+                className="relative"
+              />
+            </motion.div>
 
-                  <button className="bg-[#2163f1] text-[#cadbff] font-[500] text-[1.2rem] px-8 py-2 rounded-[5px]">
-                    Contact us
-                  </button>
-                </div>
-              </div>
-            </div>
+            <motion.div
+              className="absolute top-[2rem] max-md:bottom-[1rem] h-fit max-md:h-[85%] w-full flex items-end justify-end p-4"
+              style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+            >
+              <motion.p
+                initial={{ translateY: "110%" }}
+                whileInView={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="text-base sm:text-[1.5rem] font-[500] tracking-tighter w-[40%] max-md:w-full flex gap-4"
+              >
+                At Weblocators, we create sleek, user-focused websites that
+                blend design and performance to help businesses build a strong
+                online presence. Our goal is to craft digital experiences that
+                captivate, engage, and deliver results
+              </motion.p>
+            </motion.div>
           </div>
+
+          <section className="w-full h-auto flex items-center justify-center md:hidden p-2 ">
+            
+          <div className="w-full items-center justify-center flex flex-col p-8 rounded-[15px] relative bg-[#1e1e1e] text-white mb-[4rem] gap-4 overflow-hidden z-10">
+
+          <div className="w-[13rem] h-[13rem] absolute top-[-55%] left-[-5%] bg-[#2163f1] blur-[4rem] opacity-200 z-[-1]"></div>
+
+              <p className="text-[1.25rem] font-[400] tracking-tighter w-full flex gap-4">
+                Crafting high-performing websites that drive success for you
+              </p>
+              <p className="text-[.75rem]">
+                Let’s not create just for the sake of it. Let’s craft something
+                that’s as meaningful as it is memorable. At Studio by Miyagami,
+                we don’t just design; we build legacies—bold and unforgettable.
+              </p>
+            </div>
+          </section>
 
           {/* {window.innerWidth > 768 ? (
             <HorizontalScrollCarousel />
@@ -291,7 +322,7 @@ export default function Home() {
             </>
           )} */}
 
-          <section className="px-4 sm:px-[2.5rem]">
+          <motion.section className="px-4 sm:px-[2.5rem]">
             {/* <h1 className="text-[2rem] tracking-tighter sm:text-[3rem] w-full shrink-0 mb-[3rem] md:mb-[16rem]">
               Why choose us ?
             </h1> */}
@@ -320,7 +351,7 @@ export default function Home() {
                       className="py-7 border-t border-gray-200 items-center flex w-full"
                     >
                       <div className="translate-y-0 opacity-100 flex flex-col md:flex-row duration-500 md:justify-between md:items-center w-full">
-                        <h1 className="text-[1.5rem] text-gray-600 tracking-[-0.07813rem] sm:text-[2rem] sm:w-80 shrink-0">
+                        <h1 className="text-[1.5rem] text-gray-800 tracking-[-0.07813rem] sm:text-[2rem] sm:w-80 shrink-0">
                           {quality.title}
                         </h1>
                         <li className="text-xs tracking-tighter text-gray-400 sm:text-[1.5rem] sm:w-[48%]">
@@ -332,8 +363,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
-
+          </motion.section>
 
           <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
             <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
@@ -350,7 +380,7 @@ export default function Home() {
                   setCursorVariant("textHover");
                 }}
                 onMouseLeave={handleMouseLeave}
-                className="font-bold text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
+                className="font-[500] text-[3rem] max-md:w-[90%] max-md:text-[1.5rem] text-[#fff] w-[60%] tracking-tighter max-xl:text-[2rem] absolute top-[10%] left-[5%]"
                 initial={{ opacity: 0, translateY: 25 }}
                 whileInView={{ opacity: 1, translateY: 0 }}
                 viewport={{ amount: 0.9 }}

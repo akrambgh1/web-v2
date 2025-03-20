@@ -67,7 +67,7 @@ export default function ServicesSection() {
                 <h1 className="text-[2.5rem] font-[400] max-md:text-[1.75rem]">
                   Website Development
                 </h1>
-                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
                   <li>Business Websites</li>
                   <li>Frontend and backend development</li>
                   <li>E-commerce Solutions</li>
@@ -99,7 +99,7 @@ export default function ServicesSection() {
                 <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
                   Brand Strategy
                 </h1>
-                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
                   <li>Market Research</li>
                   <li>Competitive Analysis</li>
                   <li>Brand Positioning</li>
@@ -130,7 +130,7 @@ export default function ServicesSection() {
                 <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
                   Visual Identity
                 </h1>
-                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                <ul className="grid grid-rows-3 max-md:flex max-md:flex-col gap-2 tracking-tighter">
                   <li>Logo Design</li>
                   <li>Typography</li>
                   <li>Color Palette</li>
@@ -161,7 +161,7 @@ export default function ServicesSection() {
                 <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
                   SEO & Digital Marketing
                 </h1>
-                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
                   <li>On-page and off-page SEO</li>
                   <li>Social media integration</li>
                   <li>Email marketing setup</li>
@@ -190,7 +190,7 @@ export default function ServicesSection() {
                 <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
                   Hosting & Maintenance
                 </h1>
-                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col grid-cols-2 gap-2 tracking-tighter">
+                <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
                   <li>Web hosting setup</li>
                   <li>Ongoing maintenance and support</li>
                   <li>Security updates and backups</li>
