@@ -50,21 +50,21 @@ export default function ServicesSection() {
         }}
       >
         <section className="h-[212vh] w-[100%] absolute z-50 flex flex-col max-md:h-[400vh]">
-          {/* <h1 className="text-[2rem] tracking-tighter text-center sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[16rem]">
-            What do we provide ?
-          </h1> */}
+          <h1 className="text-[2rem] tracking-tighter text-[#2264f1] sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[4rem] px-[15rem] max-2xl:px-[3rem] max-md:px-4">
+            [Our services]
+          </h1>
           {/* Section 1 */}
           <div
             data-sticky
             className="sticky top-0 z-1 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15rem] max-2xl:px-[3rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[0] ? "bg-[#2264f1] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] h-full gap-[2rem] max-md:w-full ">
-                <h1 className="text-[2.5rem] font-[400] max-md:text-[1.75rem]">
+                <h1 className="text-[2rem] font-[400] max-md:text-[1.75rem]">
                   Website Development
                 </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
@@ -91,12 +91,12 @@ export default function ServicesSection() {
             className="sticky top-[85px] z-1 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between gap-4 transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15rem] max-2xl:px-[3rem] max-md:px-4 max-md:flex-col justify-between gap-4 transition-colors duration-300 max-md:gap-4 ${
                 activeSections[85] ? "bg-[#3973f2] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                <h1 className="text-[2rem] max-md:text-[1.75rem]">
                   Brand Strategy
                 </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
@@ -122,12 +122,12 @@ export default function ServicesSection() {
             className="sticky top-[170px] z-3 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15rem] max-2xl:px-[3rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[170] ? "bg-[#4f83f4] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                <h1 className="text-[2rem] max-md:text-[1.75rem]">
                   Visual Identity
                 </h1>
                 <ul className="grid grid-rows-3 max-md:flex max-md:flex-col gap-2 tracking-tighter">
@@ -153,12 +153,12 @@ export default function ServicesSection() {
             className="sticky top-[255px] z-3 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15rem] max-2xl:px-[3rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[255] ? "bg-[#6592f5] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                <h1 className="text-[2rem] max-md:text-[1.75rem]">
                   SEO & Digital Marketing
                 </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">
@@ -182,12 +182,12 @@ export default function ServicesSection() {
             className="sticky top-[340px] z-3 h-auto w-full overflow-visible"
           >
             <motion.div
-              className={`flex py-4 px-[15rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
+              className={`flex py-4 px-[15rem] max-2xl:px-[3rem] max-md:px-4 max-md:flex-col justify-between transition-colors duration-300 max-md:gap-4 ${
                 activeSections[340] ? "bg-[#91b1f8] text-white" : "bg-[#fff]"
               }`}
             >
               <div className="flex flex-col w-[70%] max-md:w-full h-full gap-[2rem]">
-                <h1 className="text-[2.6rem] max-md:text-[1.75rem]">
+                <h1 className="text-[2rem] max-md:text-[1.75rem]">
                   Hosting & Maintenance
                 </h1>
                 <ul className="grid grid-rows-4 max-md:flex max-md:flex-col gap-2 tracking-tighter">

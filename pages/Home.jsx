@@ -70,7 +70,7 @@ export default function Home() {
     };
   }, []);
 
-  const scale = useTransform(scrollYProgress, [0.2, 0.5], ["2", "140"]);
+  const scale = useTransform(scrollYProgress, [0.3, 0.7], ["1", "270"]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 bg-black rounded-full pointer-events-none z-50 max-md:w-0 mix-blend-difference"
+        className="fixed top-0 left-0 w-12 h-12 bg-[#1e1e1e] rounded-full pointer-events-none z-50 max-md:hidden mix-blend-difference"
         variants={variants}
         animate={cursorVarient}
         transition={{ type: "ease" }}
@@ -162,10 +162,11 @@ export default function Home() {
         ref={containerRef}
         className="flex flex-col relative"
       >
-        <section className="flex flex-col max-md:gap-[0rem] relative gap-[15rem]">
+        <section className="flex flex-col max-md:gap-[0rem] relative gap-[5rem]">
+          <Navbar></Navbar>
           <div className="h-[100vh] w-full relative max-md:h-[100vh]">
-            <motion.div
-              className="absolute bottom-[2rem] max-md:top-[2rem] h-fit max-md:h-fit px-2"
+            {/* <motion.div
+              className="absolute bottom-[2rem] max-md:top-[4rem] h-fit max-md:h-fit px-2 z-47"
               style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
               <motion.img
@@ -176,10 +177,10 @@ export default function Home() {
                 src="/Weblocators.png"
                 className="relative"
               />
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
-              className="absolute top-[2rem] max-md:bottom-[1rem] h-fit max-md:h-[85%] w-full flex items-end justify-end p-4"
+              className="absolute bottom-[2rem] max-md:bottom-[1rem] h-fit max-md:h-[85%] w-full flex items-end justify-end p-4"
               style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
               <motion.p
@@ -187,7 +188,7 @@ export default function Home() {
                 whileInView={{ translateY: 0 }}
                 transition={{ ease: "easeInOut", duration: 1 }}
                 viewport={{ amount: 0, once: true }}
-                className="text-base sm:text-[1.5rem] font-[500] tracking-tighter w-[40%] max-md:w-full flex gap-4"
+                className="text-base sm:text-[1.5rem] font-[500] tracking-tighter w-[40%] max-xl:w-[70%] max-md:w-full flex gap-4"
               >
                 At Weblocators, we create sleek, user-focused websites that
                 blend design and performance to help businesses build a strong
@@ -198,10 +199,8 @@ export default function Home() {
           </div>
 
           <section className="w-full h-auto flex items-center justify-center md:hidden p-2 ">
-            
-          <div className="w-full items-center justify-center flex flex-col p-8 rounded-[15px] relative bg-[#1e1e1e] text-white mb-[4rem] gap-4 overflow-hidden z-10">
-
-          <div className="w-[13rem] h-[13rem] absolute top-[-55%] left-[-5%] bg-[#2163f1] blur-[4rem] opacity-200 z-[-1]"></div>
+            <div className="w-full items-center justify-center flex flex-col p-8 rounded-[15px] relative bg-[#1e1e1e] text-white mb-[4rem] gap-4 overflow-hidden z-10">
+              <div className="w-[13rem] h-[13rem] absolute top-[-55%] left-[-5%] bg-[#2163f1] blur-[4rem] opacity-200 z-[-1]"></div>
 
               <p className="text-[1.25rem] font-[400] tracking-tighter w-full flex gap-4">
                 Crafting high-performing websites that drive success for you
@@ -232,7 +231,7 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#1e1e1e]">
                     We create visually stunning and user-friendly designs that
                     captivate visitors while ensuring smooth navigation and
                     accessibility.
@@ -252,7 +251,7 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#1e1e1e]">
                     Our developers build fast, secure, and scalable websites
                     with clean, efficient code for seamless functionality across
                     devices.
@@ -272,7 +271,7 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#1e1e1e]">
                     We ensure lightning-fast load times and smooth performance
                     through code efficiency, image optimization, and responsive
                     design.
@@ -292,7 +291,7 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#1e1e1e]">
                     Our SEO strategies boost visibility, while data-driven
                     insights help refine performance and maximize audience
                     engagement.
@@ -312,7 +311,7 @@ export default function Home() {
                     </h1>
                   </div>
 
-                  <p className="font-[400] text-[12px] w-[100%] text-[#000]">
+                  <p className="font-[400] text-[12px] w-[100%] text-[#1e1e1e]">
                     We stay ahead of trends, integrating new technologies and
                     ensuring your website remains modern, efficient, and
                     future-proof.
@@ -322,11 +321,11 @@ export default function Home() {
             </>
           )} */}
 
-          <motion.section className="px-4 sm:px-[2.5rem]">
-            {/* <h1 className="text-[2rem] tracking-tighter sm:text-[3rem] w-full shrink-0 mb-[3rem] md:mb-[16rem]">
-              Why choose us ?
-            </h1> */}
-            <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-18 sm:gap-x-5">
+          <motion.section className="px-[2.5rem] max-xl:px-[1rem] mt-[10rem] max-md:mt-0">
+            <h1 className="text-[2rem] tracking-tighter text-[#2264f1] sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[4rem]">
+              [ Why choose us ]
+            </h1>
+            <div className="grid max-xl:flex max-xl:flex-col max-xl:gap-[4rem] gap-y-6 grid-cols-18 sm:gap-x-5">
               <div className="relative sm:col-span-7">
                 <div className="sticky top-[40vh] w-full flex flex-col gap-y-5 sm:gap-y-8 ">
                   <p className="text-base sm:text-[1.5rem] h-auto font-[500] tracking-tighter">
@@ -354,7 +353,7 @@ export default function Home() {
                         <h1 className="text-[1.5rem] text-gray-800 tracking-[-0.07813rem] sm:text-[2rem] sm:w-80 shrink-0">
                           {quality.title}
                         </h1>
-                        <li className="text-xs tracking-tighter text-gray-400 sm:text-[1.5rem] sm:w-[48%]">
+                        <li className="text-xs tracking-tighter text-gray-400 sm:text-[1.25rem] sm:w-[48%]">
                           {quality.description}
                         </li>
                       </div>
@@ -365,14 +364,20 @@ export default function Home() {
             </div>
           </motion.section>
 
-          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative">
-            <div className="w-[80%] h-full bg-[#000] absolute overflow-hidden rounded-[20px] p-4">
+          <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative mt-[10rem]">
+            <motion.div
+              initial={{ scale: 0.8 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: .5 , ease: "easeIn"}}
+              viewport={{ amount: 0.3 }}
+              className="w-[80%] max-xl:w-[95%] h-full bg-[#1e1e1e] absolute overflow-hidden rounded-[20px] p-4"
+            >
               <motion.div
                 initial={{}}
                 style={{ scale }}
-                transition={{ ease: "easeIn" }} // Reduced duration for faster scaling
-                viewport={{ amount: 0.5 }}
-                className="absolute max-md:w-[14rem] max-md:h-[14rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#2163f1] rounded-full"
+                transition={{ ease: "easeInOut" }} // Reduced duration for faster scaling
+                viewport={{ amount: 1 }}
+                className="absolute max-md:w-[12rem] max-md:h-[12rem] w-[2rem] h-[2rem] bottom-[0rem] left-1/2 -translate-x-1/2 bg-[#2163f1] rounded-full"
               ></motion.div>
 
               <motion.h1
@@ -395,7 +400,7 @@ export default function Home() {
                 that’s as meaningful as it is memorable. At Studio by Miyagami,
                 we don’t just design; we build legacies—bold and unforgettable.
               </p>
-            </div>
+            </motion.div>
           </section>
 
           <ServicesSection></ServicesSection>
