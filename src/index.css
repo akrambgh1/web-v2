@@ -12,5 +12,6 @@ body {
   background-color: white;
   color: black;
   overflow: auto;
+  height: 100dvh;
 }
 

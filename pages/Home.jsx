@@ -23,6 +23,7 @@ import {
   Zap,
   ChartNoAxesCombined,
   Lightbulb,
+  FlaskConical,
 } from "lucide-react";
 import { HorizontalScrollCarousel } from "@/components/HorizontalScrollCarousel";
 
@@ -162,9 +163,77 @@ export default function Home() {
         ref={containerRef}
         className="flex flex-col relative"
       >
-        <section className="flex flex-col max-md:gap-[0rem] relative gap-[5rem]">
+        <section className="flex flex-col max-md:gap-[0rem] relative gap-[2rem]">
           <Navbar></Navbar>
-          <div className="h-[100vh] w-full relative max-md:h-[100vh]">
+
+          <div className="h-[70vh] w-full flex items-center flex-col justify-end relative max-md:h-[70vh] max-md:justify-center">
+            <motion.div
+              className="flex items-center justify-center gap-4 max-md:w-[95%] max-md:gap-2"
+              style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+            >
+              <motion.span
+                initial={{ translateY: "100%" }}
+                animate={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="relative text-[6rem] max-md:text-[2.25rem] max-xl:text-[4rem] font-[500] tracking-tighter"
+              >
+                Transforming ideas
+              </motion.span>
+              <motion.div
+                initial={{
+                  translateY: window.innerWidth < 768 ? "110%" : "112%",
+                }}
+                animate={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="relative bg-amber-300 rounded-full p-4 max-md:p-2"
+              >
+                <Lightbulb className="max-md:w-10 max-md:h-10" size={90} />
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="flex items-center gap-4 w-[70%] max-md:w-[90%]"
+              style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+            >
+              <motion.span
+                initial={{ translateY: "100%" }}
+                animate={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="relative text-[6rem] max-md:text-[2.25rem] max-xl:text-[4rem] font-[500] tracking-tighter"
+              >
+                into impactful digital
+              </motion.span>
+            </motion.div>
+            <motion.div
+              className="flex items-center justify-end gap-4 w-[70%] max-md:w-[90%]"
+              style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+            >
+              <motion.div
+                initial={{
+                  translateY: window.innerWidth < 768 ? "110%" : "125%",
+                }}
+                animate={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="relative bg-[#2264f1] rounded-full p-3 max-md:p-2"
+              >
+                <FlaskConical size={80} className="max-md:w-9 max-md:h-9" />
+              </motion.div>
+
+              <motion.span
+                initial={{ translateY: "100%" }}
+                animate={{ translateY: 0 }}
+                transition={{ ease: "easeInOut", duration: 1 }}
+                viewport={{ amount: 0, once: true }}
+                className="relative text-[6rem] max-md:text-[2.25rem] max-xl:text-[4rem] font-[500] tracking-tighter"
+              >
+                experiences.
+              </motion.span>
+            </motion.div>
+
             {/* <motion.div
               className="absolute bottom-[2rem] max-md:top-[4rem] h-fit max-md:h-fit px-2 z-47"
               style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
@@ -177,10 +246,10 @@ export default function Home() {
                 src="/Weblocators.png"
                 className="relative"
               />
-            </motion.div> */}
+            </motion.div> 
 
             <motion.div
-              className="absolute bottom-[2rem] max-md:bottom-[1rem] h-fit max-md:h-[85%] w-full flex items-end justify-end p-4"
+              className="absolute top-[2rem] max-md:bottom-[1rem] h-fit max-md:h-[85%] w-full flex items-end justify-end p-4"
               style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
               <motion.p
@@ -195,23 +264,8 @@ export default function Home() {
                 online presence. Our goal is to craft digital experiences that
                 captivate, engage, and deliver results
               </motion.p>
-            </motion.div>
+            </motion.div> */}
           </div>
-
-          <section className="w-full h-auto flex items-center justify-center md:hidden p-2 ">
-            <div className="w-full items-center justify-center flex flex-col p-8 rounded-[15px] relative bg-[#1e1e1e] text-white mb-[4rem] gap-4 overflow-hidden z-10">
-              <div className="w-[13rem] h-[13rem] absolute top-[-55%] left-[-5%] bg-[#2163f1] blur-[4rem] opacity-200 z-[-1]"></div>
-
-              <p className="text-[1.25rem] font-[400] tracking-tighter w-full flex gap-4">
-                Crafting high-performing websites that drive success for you
-              </p>
-              <p className="text-[.75rem]">
-                Let’s not create just for the sake of it. Let’s craft something
-                that’s as meaningful as it is memorable. At Studio by Miyagami,
-                we don’t just design; we build legacies—bold and unforgettable.
-              </p>
-            </div>
-          </section>
 
           {/* {window.innerWidth > 768 ? (
             <HorizontalScrollCarousel />
@@ -322,9 +376,14 @@ export default function Home() {
           )} */}
 
           <motion.section className="px-[2.5rem] max-xl:px-[1rem] mt-[10rem] max-md:mt-0">
-            <h1 className="text-[2rem] tracking-tighter text-[#2264f1] sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[4rem]">
+            <motion.h1
+              initial={{ opacity: 0, translateY: "30%" }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ ease: easeInOut, duration: 1 }}
+              className="text-[2rem] tracking-tighter text-[#2264f1] sm:text-[3rem] w-[100%] shrink-0 mb-[3rem] md:mb-[4rem]"
+            >
               [ Why choose us ]
-            </h1>
+            </motion.h1>
             <div className="grid max-xl:flex max-xl:flex-col max-xl:gap-[4rem] gap-y-6 grid-cols-18 sm:gap-x-5">
               <div className="relative sm:col-span-7">
                 <div className="sticky top-[40vh] w-full flex flex-col gap-y-5 sm:gap-y-8 ">
@@ -364,11 +423,26 @@ export default function Home() {
             </div>
           </motion.section>
 
+          <section className="w-full h-auto flex items-center justify-center md:hidden p-2 mt-[5rem]">
+            <div className="w-full items-center justify-center flex flex-col p-8 rounded-[7px] relative bg-[#1e1e1e] text-white mb-[4rem] gap-4 overflow-hidden z-10">
+              <div className="w-[13rem] h-[13rem] absolute top-[-55%] left-[-5%] bg-[#2163f1] blur-[4rem] opacity-200 z-[-1]"></div>
+
+              <p className="text-[1.25rem] font-[400] tracking-tighter w-full flex gap-4">
+                Crafting high-performing websites that drive success for you
+              </p>
+              <p className="text-[.75rem]">
+                Let’s not create just for the sake of it. Let’s craft something
+                that’s as meaningful as it is memorable. At Studio by Miyagami,
+                we don’t just design; we build legacies—bold and unforgettable.
+              </p>
+            </div>
+          </section>
+
           <section className="w-[100%] max-md:h-[60vh] h-[100vh] flex items-center justify-center max-md:hidden relative mt-[10rem]">
             <motion.div
-              initial={{ scale: 0.8 }}
+              initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: .5 , ease: "easeIn"}}
+              transition={{ duration: 0.5, ease: "easeIn" }}
               viewport={{ amount: 0.3 }}
               className="w-[80%] max-xl:w-[95%] h-full bg-[#1e1e1e] absolute overflow-hidden rounded-[20px] p-4"
             >

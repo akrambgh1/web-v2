@@ -44,7 +44,7 @@ export default function ServicesSection() {
   return (
     <>
       <section
-        className="relative min-h-[180vh] mt-[10rem] max-md:min-h-[320vh] max-md:mt-[5rem]"
+        className="relative min-h-[180vh] mt-[10rem] max-md:min-h-[320vh] max-md:mt-[2rem]"
         style={{
           clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
         }}
