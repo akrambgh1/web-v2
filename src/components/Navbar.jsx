@@ -50,11 +50,10 @@ const Navbar = () => {
 
       {/* Menu Button */}
       <div
-        className={`flex w-[70%] max-md:w-[90%] p-1 duration-800 max-md:px-4 bg-[#1e1e1e] self-center items-center rounded-[30px] justify-between gap-3 cursor-pointer fixed px-8 top-[3%] z-45 select-none ${
+        className={`flex w-[70%] max-md:w-[90%] p-1 duration-800 max-md:px-4 bg-[#1e1e1e] self-center items-center rounded-[30px] justify-between gap-3 cursor-pointer fixed px-8 top-[2%] z-45 select-none ${
           !scrollingUp ? "translate-y-[-200%]" : "" 
         } `}>
         <h1
-          onClick={() => setIsActive(true)}
           className={`text-[2.25rem] font-[400] tracking-tighter transition-all max-md:text-[1.75rem] ease-in duration-300 ${
             isActive ? "text-[#e2e3e6] " : "text-[#fff]"
           }`}
